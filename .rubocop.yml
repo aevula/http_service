@@ -1,0 +1,11 @@
+inherit_from: ./.rubocop-common.yml
+
+AllCops:
+  TargetRubyVersion: 3.4
+
+
+########## Style ############
+
+Style/RequireOrder:
+  Exclude:
+    - 'lib/http_service.rb'
