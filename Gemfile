@@ -9,6 +9,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rake', require: false
   gem 'rspec', require: false
+  gem 'panolint', require: false
 end
 
 group :development do
