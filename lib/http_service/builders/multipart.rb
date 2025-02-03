@@ -4,8 +4,6 @@ require 'faraday/multipart'
 
 module HTTPService
   module Multipart
-    extend ActiveSupport::Concern
-
     include ConfigurableClient
 
     private

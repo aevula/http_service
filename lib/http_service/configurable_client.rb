@@ -4,8 +4,6 @@ require 'faraday'
 
 module HTTPService
   module ConfigurableClient
-    extend ActiveSupport::Concern
-
     include Options
 
     def client
@@ -19,7 +17,11 @@ module HTTPService
     end
 
     def configure_client(faraday)
-      faraday.response(:logger, nil, self.class::LOGGER_OPTIONS.dup)
+      faraday.response(:logger, logger, self.class::LOGGER_OPTIONS)
+    end
+
+    def logger
+      SemanticLogger[self.class::LOGGER_TAG] if defined?(SemanticLogger)
     end
   end
 end

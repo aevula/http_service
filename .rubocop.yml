@@ -1,8 +1,11 @@
+inherit_mode:
+  merge:
+    - Exclude
+
 inherit_from: ./.rubocop-common.yml
 
 AllCops:
   TargetRubyVersion: 3.4
-
 
 ########## Style ############
 

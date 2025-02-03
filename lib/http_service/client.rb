@@ -4,7 +4,8 @@ module HTTPService
   module Client
     extend ActiveSupport::Concern
 
-    include HTTPService::HTTPClient
+    include Requester
+    include Buildable
 
     HTTP_METHOD = nil
     public_constant :HTTP_METHOD

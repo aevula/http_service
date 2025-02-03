@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module HTTPService
-  module JSON
+  module Json
     def self.included(base)
-      base.include(JSONRequest)
-      base.include(JSONResponse)
+      base.include(Request)
+      base.include(Response)
     end
 
-    module JSONRequest
+    module Request
       include ConfigurableClient
 
       private
@@ -18,7 +18,7 @@ module HTTPService
       end
     end
 
-    module JSONResponse
+    module Response
       include ConfigurableClient
 
       private
