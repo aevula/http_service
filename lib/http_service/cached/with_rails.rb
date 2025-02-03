@@ -9,10 +9,10 @@ module HTTPService
         raise(ArgumentError, 'Rails not defined')
       end
 
-      def cached(cache_key, options = {}, &)
-        return unless block_given?
+      def cached(cache_key, options = {}, &block)
+        return unless block
 
-        Rails.cache.fetch(cache_key, **options, &)
+        Rails.cache.fetch(cache_key, **options, &block)
       end
     end
   end

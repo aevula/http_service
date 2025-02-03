@@ -10,7 +10,7 @@ module HTTPService
         # raise(ArgumentError, 'Redis not defined')
       end
 
-      def cached(cache_key, options = {}, &); end
+      def cached(cache_key, options = {}, &block); end
     end
   end
 end

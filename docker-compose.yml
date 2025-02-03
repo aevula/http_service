@@ -3,6 +3,9 @@ services:
     build:
       context: .
       target: development
+      args:
+        - RUBY_VERSION=3.0
+    command: bundle exec rake
     volumes:
       - ./:/opt/app
     tty: true
@@ -12,7 +15,7 @@ services:
 
   test:
     <<: *app
-    command: rspec --format documentation
+    command: bundle exec rspec --format documentation
     profiles:
       - test
     env_file:

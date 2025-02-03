@@ -15,3 +15,7 @@
   - `WithRedis` not implemented
   - `WithMemory` using memoization. Intended for testing/local purposes
 - Expanded `Options`
+
+## [0.2.1] - 2025-02-04
+
+- Added ruby 3.0 support

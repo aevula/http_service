@@ -1,4 +1,4 @@
-name: Ruby
+name: Main
 
 on:
   push:
@@ -7,19 +7,46 @@ on:
   pull_request:
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
-    strategy:
-      matrix:
-        ruby:
-          - "3.4.1"
+    name: Lint
+    env:
+      BUNDLE_WITH: lint
+      BUNDLE_WITHOUT: development test
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup Ruby 3.0
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
+      - name: Rubocop
+        run: bundle exec rubocop --format progress
+
+  test:
+    needs:
+      - lint
+    runs-on: ubuntu-latest
+    name: Test Ruby ${{ matrix.ruby }}
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - "3.0"
+          - "3.1"
+          - "3.2"
+          - "3.3"
+          - "3.4"
+    steps:
+      - uses: actions/checkout@v4
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - name: Run the default task
-        run: bundle exec rake
+
+      - name: RSpec
+        run: bundle exec rspec

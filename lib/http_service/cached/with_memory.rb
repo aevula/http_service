@@ -11,8 +11,8 @@ module HTTPService
         end
       end
 
-      def cached(cache_key, _options = {}, &)
-        return unless block_given?
+      def cached(cache_key, _options = {}, &block)
+        return unless block
 
         self.class.cached_data[cache_key] ||= yield
       end
