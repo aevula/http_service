@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module HTTPService
-  module HTTPClient
+  module Requester
     extend ActiveSupport::Concern
 
     include HTTPService::ConfigurableClient
@@ -9,7 +9,7 @@ module HTTPService
     attr_reader :http_method, :url, :path, :body, :headers, :response
 
     def initialize(http_method, url:, path: nil, body: {}, headers: {})
-      @http_method = http_method.to_s.downcase
+      @http_method = http_method.to_s.downcase.to_sym
       @url = url
       @path = path
       @body = body
@@ -22,12 +22,12 @@ module HTTPService
         send_request
         after_request
       end
+    end
 
-      private
+    private
 
-      def send_request
-        @response = client.__send__(http_method, path, body, headers)
-      end
+    def send_request
+      @response = client.__send__(http_method, path, body, headers)
     end
 
     def before_request; end
