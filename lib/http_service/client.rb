@@ -30,7 +30,7 @@ module HTTPService
 
     class_methods do
       def call(http_method = nil, url: nil, path: nil, body: {}, headers: {})
-        new(http_method, url:, path:, body:, headers:).call
+        new(http_method, url: url, path: path, body: body, headers: headers).call
       end
     end
 

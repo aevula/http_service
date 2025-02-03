@@ -37,7 +37,7 @@ module HTTPService
     end
 
     def client_options
-      super.merge(url:)
+      super.merge(url: url)
     end
   end
 end

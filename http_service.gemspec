@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/aevula/http_service'
   spec.license = 'MIT'
 
-  spec.required_ruby_version = '>= 3.4'
+  spec.required_ruby_version = '>= 3.0'
 
   spec.metadata = {
     'homepage_uri'          => 'https://github.com/aevula/http_service',

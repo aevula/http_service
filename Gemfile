@@ -11,7 +11,7 @@ group :development, :test do
   gem 'rspec', require: false
 end
 
-group :development do
+group :development, :lint do
   gem 'rubocop', require: false
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false

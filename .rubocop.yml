@@ -5,7 +5,7 @@ inherit_mode:
 inherit_from: ./.rubocop-common.yml
 
 AllCops:
-  TargetRubyVersion: 3.4
+  TargetRubyVersion: 3.0
 
 ########## Style ############
 
