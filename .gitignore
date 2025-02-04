@@ -44,4 +44,9 @@
 /examples.txt
 .rspec_status
 
+# Dev
 Gemfile.lock
+.env
+Dockerfile
+docker-compose.yml
+.dockerignore

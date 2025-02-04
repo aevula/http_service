@@ -8,7 +8,7 @@ module HTTPService
       private
 
       def after_request
-        super.body
+        @response = super.body
       end
     end
 
@@ -18,7 +18,7 @@ module HTTPService
       private
 
       def after_request
-        super.headers
+        @response = super.headers
       end
     end
   end
