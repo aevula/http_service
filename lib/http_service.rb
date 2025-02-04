@@ -23,6 +23,7 @@ require 'http_service/builders/json'
 require 'http_service/builders/only'
 require 'http_service/builders/id_query'
 
+require 'http_service/builders'
 require 'http_service/buildable'
 require 'http_service/client'
 
